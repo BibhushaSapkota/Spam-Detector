@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href={{url_for('static', filename='css/home.css')}}>
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo"> Test your Mail</a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list container">
+
+          <li>
+            <a href="#home" class="navbar-link active" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#about" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li>
+            <a href="#footer" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+          {% if session.Username %}
+              <li>
+                <a href="{{url_for('logout')}}" class="navbar-link" data-nav-link>Logout</a>
+              </li>
+              <li>
+                <a href="{{url_for('index',message=message)}}" class="btn btn-primary">Get Started</a>
+              </li>
+          {% else %}
+              <li>
+                <a href="{{url_for('login')}}" class="btn btn-primary">Login</a>
+              </li>
+          {% endif %}
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="toggle manu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+  <main>
+    <article>
+
+      <section class="section hero" aria-label="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Test your mail</p>
+
+            <h1 class="h1 hero-title">Spam email detection through machine learning</h1>
+
+            <p class="section-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu ut labore et
+              dolore magna
+              aliqua. Ut enim ad minim veniamquis nostrud
+            </p>
+
+            <ul class="btn-list">
+
+
+            </ul>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src={{url_for('static', filename='img/spam-email.png')}} width="769" height="804"
+              alt="hero banner" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src={{url_for('static', filename='img/SMS-Spam-Header.jpg')}} width="1262"
+              height="1357" loading="lazy" alt="about banner" class="w-100">
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">About us</p>
+
+            <h2 class="h2 section-title">We Are Trusted By Thousands Of People</h2>
+
+            <p class="section-text">
+              Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullamcorper mattis,
+              pulvinar
+              dapibus leo. Lorem ipsum dolor sit amet, consec tetur adipiscing elit. Ut elit tellus, luc tus nec ullam
+              corpe
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+
+                <div class="item-icon">
+                  <ion-icon name="folder" aria-hidden="true"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 item-title">Machine Learning</h3>
+
+                  <p class="item-text">
+                    Lorem ipsum dolor sit amet, consec tetur adipiscing elit Lorem ipsum dolor sit amet, consec tetur
+                    adipiscing elit.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="item-icon">
+                  <ion-icon name="pie-chart" aria-hidden="true"></ion-icon>
+                </div>
+
+                <div>
+                  <h3 class="h3 item-title">Feature Engineering</h3>
+
+                  <p class="item-text">
+                    Lorem ipsum dolor sit amet, consec tetur adipiscing elit Lorem ipsum dolor sit amet, consec tetur
+                    adipiscing elit.
+                  </p>
+                </div>
+
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn btn-secondary">Discover More</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- 
+    - #FOOTER
+  -->
+
+      <footer class="footer" id="footer">
+
+        <div class="section footer-top">
+          <div class="container">
+
+            <div class="footer-brand">
+
+              <a href="#" class="logo">Test your mail</a>
+
+              <p class="section-text">
+                Duis cursus, mi quis viverra ornare, eros dolor interdum nulla utimp erdiet commodo diam libero vitae
+                nibh
+                et jus cursus
+                id rutrum lore imperdiet ut sem vitae risus tristique posuere
+              </p>
+
+              <ul class="social-list">
+
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-google"></ion-icon>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="social-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+
+              </ul>
+
+            </div>
+
+            <ul class="footer-list">
+
+              <li>
+                <p class="footer-list-title">Test Your mail</p>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link">About Us</a>
+              </li>
+
+
+              <li>
+                <a href="#" class="footer-link">Developer</a>
+              </li>
+
+            </ul>
+
+
+            <ul class="footer-list">
+
+              <li>
+                <p class="footer-list-title">Useful Links</p>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link">Contact Us</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link">Privacy Policy</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link">How It Works</a>
+              </li>
+
+              <li>
+                <a href="#" class="footer-link">Terms & Conditions</a>
+              </li>
+
+            </ul>
+            <ul class="footer-list">
+
+              <li>
+                <p class="footer-list-title">Get In Touch</p>
+              </li>
+
+              <li class="footer-item">
+                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+                <a href="tel:+12023459999" class="item-link">9841555555</a>
+              </li>
+
+              <li class="footer-item">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+                <a href="mailto:supportvast@gmail.com" class="item-link">Sauravchhetri@gmail.com</a>
+              </li>
+
+              <li class="footer-item">
+                <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+
+                <address class="item-link address">
+                  Softwarica College,<br>
+                  Dillibajar, KTM
+                </address>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="container">
+
+            <p class="copyright">
+              &copy; 2022 All Rights Reserved by <a href="#" class="copyright-link">SAURAV CHHETRI</a>.
+            </p>
+
+          </div>
+        </div>
+
+      </footer>
+
+
+
+
+
+      <!-- 
+    - #BACK TO TOP
+  -->
+
+      <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+        <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+      </a>
+
+
+
+
+      <!-- 
+    - custom js link
+  -->
+      <script src="./assets/js/script.js" defer></script>
+
+      <!-- 
+    - ionicon link
+  -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </article>
+  </main>
+</body>
+</html>
